@@ -1,0 +1,94 @@
+/* Layout: a working tool. Panels left and right, the model in the middle, controls in the
+   materials of the scheme: warm stone greys, oak-brown ink, sage for actions. */
+:root {
+  --bg: #e9e6e1; --panel: #f6f4f0; --ink: #26231f; --muted: #776f66; --rule: #d6d0c7;
+  --accent: #56664f; --accent-ink: #f7f5f1; --warm: #a4593a; --sel: #c8a66a; --field: #ffffff;
+  --sans: -apple-system, "SF Pro Text", "Avenir Next", "Segoe UI", system-ui, sans-serif;
+  --mono: "SF Mono", ui-monospace, Menlo, monospace;
+  color-scheme: light;
+}
+* { box-sizing: border-box }
+html, body { height: 100%; margin: 0 }
+body { background: var(--bg); color: var(--ink); font: 13px/1.45 var(--sans);
+  display: grid; grid-template-columns: 320px 1fr auto; grid-template-rows: 48px 1fr; overflow: hidden }
+button, input, select { font: inherit; color: inherit }
+button { cursor: pointer }
+:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px }
+[hidden] { display: none !important }
+
+.bar { grid-column: 1 / -1; display: flex; align-items: center; gap: 16px; padding: 0 14px;
+  background: var(--panel); border-bottom: 1px solid var(--rule) }
+.brand { display: flex; gap: 8px; align-items: baseline; min-width: 288px }
+.brand b { font-size: 15px; letter-spacing: .02em }
+.brand span { color: var(--muted) }
+.views { display: flex; border: 1px solid var(--rule); border-radius: 8px; overflow: hidden }
+.views button { border: 0; background: transparent; padding: 6px 14px }
+.views button.on { background: var(--ink); color: var(--panel) }
+.check { display: flex; gap: 6px; align-items: center; color: var(--muted) }
+.spacer { flex: 1 }
+.hint { color: var(--muted) }
+#undo { border: 1px solid var(--rule); background: var(--field); border-radius: 8px; padding: 6px 12px }
+
+.left, .right { background: var(--panel); overflow-y: auto; min-height: 0 }
+.left { border-right: 1px solid var(--rule); display: flex; flex-direction: column }
+.right { width: 300px; border-left: 1px solid var(--rule); padding: 14px 16px 24px }
+.tabs { display: grid; grid-template-columns: repeat(4, 1fr); border-bottom: 1px solid var(--rule); position: sticky; top: 0; background: var(--panel); z-index: 2 }
+.tabs button { border: 0; background: transparent; padding: 11px 0; color: var(--muted); border-bottom: 2px solid transparent }
+.tabs button.on { color: var(--ink); border-bottom-color: var(--ink) }
+.tab { padding: 12px 14px 28px; display: grid; gap: 14px; align-content: start }
+
+h2 { font-size: 11px; letter-spacing: .09em; text-transform: uppercase; color: var(--muted); margin: 6px 0 0; font-weight: 600 }
+h3 { font-size: 15px; margin: 0; font-weight: 600 }
+details { border-top: 1px solid var(--rule); padding-top: 8px }
+details > summary { cursor: pointer; font-weight: 600; list-style: none; display: flex; justify-content: space-between }
+details > summary::after { content: "+"; color: var(--muted) }
+details[open] > summary::after { content: "–" }
+details > .body { display: grid; gap: 10px; padding: 10px 0 4px }
+
+.cat-list { display: grid; grid-template-columns: 1fr 1fr; gap: 6px }
+.add { border: 1px solid var(--rule); background: var(--field); border-radius: 8px; padding: 8px 10px; text-align: left; display: grid; gap: 2px }
+.add:hover { border-color: var(--accent) }
+.add small { color: var(--muted) }
+
+.field { display: grid; gap: 5px }
+.field > span { color: var(--muted); font-size: 12px }
+.row { display: flex; gap: 8px; align-items: center }
+.row > * { min-width: 0 }
+select, input[type=text], input[type=number] { width: 100%; border: 1px solid var(--rule); background: var(--field); border-radius: 7px; padding: 6px 8px }
+input[type=number] { font-family: var(--mono); font-size: 12px }
+input[type=color] { width: 34px; height: 28px; border: 1px solid var(--rule); border-radius: 7px; padding: 2px; background: var(--field) }
+.swatches { display: flex; flex-wrap: wrap; gap: 5px }
+.sw { width: 22px; height: 22px; border-radius: 50%; border: 1px solid rgb(0 0 0 / .12); padding: 0 }
+.sw.on { outline: 2px solid var(--ink); outline-offset: 1px }
+.toggle { display: flex; gap: 6px; align-items: center }
+
+.btn { border: 1px solid var(--rule); background: var(--field); border-radius: 8px; padding: 7px 12px }
+.btn.primary { background: var(--accent); color: var(--accent-ink); border-color: var(--accent); font-weight: 600 }
+.btn.danger { color: var(--warm) }
+.btns { display: flex; flex-wrap: wrap; gap: 6px }
+
+#stage { position: relative; min-width: 0; min-height: 0; overflow: hidden }
+#stage canvas { display: block; width: 100%; height: 100% }
+#frame { position: absolute; pointer-events: none; border: 1.5px solid rgb(255 255 255 / .9);
+  box-shadow: 0 0 0 9999px rgb(20 18 16 / .28) }
+#loading { position: absolute; inset: 0; display: grid; place-items: center; color: var(--muted); font-size: 15px; background: var(--bg) }
+
+.jobs { display: grid; gap: 10px }
+.job { border: 1px solid var(--rule); border-radius: 10px; overflow: hidden; background: var(--field) }
+.job img { display: block; width: 100%; aspect-ratio: 3 / 2; object-fit: cover; background: var(--bg); cursor: zoom-in }
+.job .meta { padding: 8px 10px; display: grid; gap: 4px }
+.job .meta .row { justify-content: space-between }
+.progress { height: 4px; background: var(--bg); border-radius: 2px; overflow: hidden }
+.progress i { display: block; height: 100%; background: var(--accent); transition: width .5s }
+.muted { color: var(--muted) }
+.mono { font-family: var(--mono); font-size: 12px }
+.note { color: var(--muted); font-size: 12px }
+
+#toast { position: fixed; left: 50%; bottom: 22px; transform: translateX(-50%); background: var(--ink); color: var(--panel);
+  padding: 9px 16px; border-radius: 999px; z-index: 50 }
+
+dialog#viewer { border: 0; padding: 0; background: transparent; max-width: 96vw; max-height: 94vh }
+dialog#viewer::backdrop { background: rgb(14 12 10 / .88) }
+dialog#viewer img { display: block; max-width: 96vw; max-height: 88vh }
+dialog#viewer .row { justify-content: space-between; color: #eee9e1; padding-top: 8px }
+dialog#viewer a, dialog#viewer button { color: #eee9e1 }

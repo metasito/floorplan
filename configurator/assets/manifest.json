@@ -1,0 +1,234 @@
+{
+ "shell": "shell.glb",
+ "kitchen": {
+  "cupboards and shelves|brass knobs": "kitchen__0_0.glb",
+  "cupboards and shelves|black bars": "kitchen__0_1.glb",
+  "cupboards and shelves|oak knobs": "kitchen__0_2.glb",
+  "cupboards and shelves|handleless": "kitchen__0_3.glb",
+  "cupboards|brass knobs": "kitchen__1_0.glb",
+  "cupboards|black bars": "kitchen__1_1.glb",
+  "cupboards|oak knobs": "kitchen__1_2.glb",
+  "cupboards|handleless": "kitchen__1_3.glb",
+  "open shelves|brass knobs": "kitchen__2_0.glb",
+  "open shelves|black bars": "kitchen__2_1.glb",
+  "open shelves|oak knobs": "kitchen__2_2.glb",
+  "open shelves|handleless": "kitchen__2_3.glb",
+  "none|brass knobs": "kitchen__3_0.glb",
+  "none|black bars": "kitchen__3_1.glb",
+  "none|oak knobs": "kitchen__3_2.glb",
+  "none|handleless": "kitchen__3_3.glb"
+ },
+ "curtains": {
+  "W1": "curtain_W1.glb",
+  "W2": "curtain_W2.glb",
+  "W3": "curtain_W3.glb",
+  "W5": "curtain_W5.glb"
+ },
+ "items": {
+  "sofa": {
+   "3-seat 216": "sofa__0.glb",
+   "2-seat 160": "sofa__1.glb",
+   "4-seat 250": "sofa__2.glb",
+   "armchair 88": "sofa__3.glb"
+  },
+  "lounge_chair": {
+   "mid-century": "lounge_chair__0.glb",
+   "wood frame": "lounge_chair__1.glb"
+  },
+  "cushion": {
+   "square 48": "cushion__0.glb",
+   "square 42": "cushion__1.glb",
+   "large 55": "cushion__2.glb"
+  },
+  "throw": {
+   "folded": "throw__0.glb"
+  },
+  "coffee_table": {
+   "oval 104": "coffee_table__0.glb",
+   "round 90": "coffee_table__1.glb",
+   "rectangle 110": "coffee_table__2.glb"
+  },
+  "side_table": {
+   "round": "side_table__0.glb",
+   "square two-tier": "side_table__1.glb"
+  },
+  "media_unit": {
+   "cane 276": "media_unit__0.glb",
+   "cane 200": "media_unit__1.glb",
+   "plain 240": "media_unit__2.glb",
+   "plain 180": "media_unit__3.glb"
+  },
+  "tv": {
+   "55 inch": "tv__0.glb",
+   "65 inch": "tv__1.glb"
+  },
+  "floor_lamp": {
+   "tripod linen": "floor_lamp__0.glb"
+  },
+  "table_lamp": {
+   "ball": "table_lamp__0.glb",
+   "column": "table_lamp__1.glb"
+  },
+  "pendant": {
+   "rattan dome": "pendant__0.glb",
+   "rattan dome large": "pendant__1.glb",
+   "rattan globe": "pendant__2.glb",
+   "paper globe": "pendant__3.glb",
+   "white opal": "pendant__4.glb"
+  },
+  "rug": {
+   "jute": "rug__0.glb",
+   "berber": "rug__1.glb",
+   "stripes": "rug__2.glb",
+   "plain wool": "rug__3.glb"
+  },
+  "art": {
+   "arch": "art__0.glb",
+   "olive branch": "art__1.glb",
+   "shapes": "art__2.glb",
+   "lines": "art__3.glb",
+   "horizon": "art__4.glb"
+  },
+  "mirror": {
+   "round 60": "mirror__0.glb",
+   "round 70": "mirror__1.glb",
+   "rectangle 86x78": "mirror__2.glb"
+  },
+  "plant": {
+   "money tree": "plant__0.glb",
+   "money tree small": "plant__1.glb",
+   "leafy pot": "plant__2.glb",
+   "elephant ear": "plant__3.glb",
+   "succulent": "plant__4.glb",
+   "calathea in pot": "plant__5.glb",
+   "fern": "plant__6.glb",
+   "anthurium in pot": "plant__7.glb"
+  },
+  "decor": {
+   "vase tall": "decor__0.glb",
+   "vase bottle": "decor__1.glb",
+   "vase round": "decor__2.glb",
+   "jug": "decor__3.glb",
+   "wooden bowl": "decor__4.glb",
+   "basket": "decor__5.glb",
+   "basket low": "decor__6.glb",
+   "candlestick": "decor__7.glb",
+   "shell": "decor__8.glb",
+   "books": "decor__9.glb",
+   "fruit bowl": "decor__10.glb",
+   "towel stack": "decor__11.glb",
+   "terracotta pot": "decor__12.glb"
+  },
+  "dining_table": {
+   "rectangle 180x85": "dining_table__0.glb",
+   "rectangle 160x80": "dining_table__1.glb",
+   "round 120": "dining_table__2.glb",
+   "round 100": "dining_table__3.glb"
+  },
+  "dining_chair": {
+   "oak spindle": "dining_chair__0.glb",
+   "upholstered": "dining_chair__1.glb",
+   "painted white": "dining_chair__2.glb"
+  },
+  "bed": {
+   "double 180": "bed__0.glb",
+   "double 160": "bed__1.glb",
+   "single 90": "bed__2.glb"
+  },
+  "nightstand": {
+   "one drawer": "nightstand__0.glb",
+   "small": "nightstand__1.glb"
+  },
+  "wardrobe": {
+   "180 wide": "wardrobe__0.glb",
+   "120 wide": "wardrobe__1.glb",
+   "87 wide": "wardrobe__2.glb",
+   "60 wide": "wardrobe__3.glb"
+  },
+  "dresser": {
+   "122 wide": "dresser__0.glb",
+   "90 wide": "dresser__1.glb"
+  },
+  "desk": {
+   "105 with drawers": "desk__0.glb",
+   "120 plain": "desk__1.glb"
+  },
+  "wall_shelf": {
+   "100": "wall_shelf__0.glb",
+   "60": "wall_shelf__1.glb"
+  },
+  "desk_lamp": {
+   "arm": "desk_lamp__0.glb"
+  },
+  "hall_bench": {
+   "110": "hall_bench__0.glb",
+   "80": "hall_bench__1.glb"
+  },
+  "hook_rail": {
+   "4 hooks": "hook_rail__0.glb"
+  },
+  "wc": {
+   "rounded": "wc__0.glb",
+   "rounded bidet": "wc__1.glb"
+  },
+  "cistern_wall": {
+   "tiled": "cistern_wall__0.glb"
+  },
+  "vanity": {
+   "72 single": "vanity__0.glb",
+   "100 single": "vanity__1.glb",
+   "160 long": "vanity__2.glb"
+  },
+  "towel_rail": {
+   "with towel": "towel_rail__0.glb"
+  },
+  "tall_cupboard": {
+   "60x60": "tall_cupboard__0.glb"
+  },
+  "bistro_set": {
+   "folding wood": "bistro_set__0.glb"
+  },
+  "bistro_table": {
+   "round 56": "bistro_table__0.glb"
+  },
+  "stool": {
+   "wood": "stool__0.glb"
+  },
+  "outdoor_bench": {
+   "250": "outdoor_bench__0.glb",
+   "180": "outdoor_bench__1.glb"
+  },
+  "lounger": {
+   "115": "lounger__0.glb"
+  }
+ },
+ "ref_size": {
+  "rug": [
+   100,
+   100
+  ],
+  "art": [
+   50,
+   70
+  ],
+  "plant": [
+   0,
+   100
+  ],
+  "decor": [
+   0,
+   24
+  ],
+  "cistern_wall": [
+   100,
+   20
+  ],
+  "bistro_set": [
+   0,
+   86
+  ]
+ },
+ "ref_z": {
+  "pendant": 160
+ }
+}

@@ -1,0 +1,122 @@
+14:03:39 | INFO: Data are loaded, start creating Blender stuff
+14:03:39 | INFO: Blender create Mesh node Cylinder.003
+14:03:39 | INFO: glTF import finished in 0.03s
+14:03:39 | INFO: Data are loaded, start creating Blender stuff
+14:03:39 | INFO: Blender create Mesh node Cylinder.005
+14:03:39 | INFO: glTF import finished in 0.02s
+14:03:39 | INFO: Data are loaded, start creating Blender stuff
+14:03:39 | INFO: Blender create Mesh node mesh.003
+14:03:39 | INFO: glTF import finished in 0.02s
+14:03:39 | INFO: Data are loaded, start creating Blender stuff
+14:03:39 | INFO: Blender create Mesh node Cylinder.009
+14:03:39 | INFO: glTF import finished in 0.02s
+14:03:39 | INFO: Data are loaded, start creating Blender stuff
+14:03:39 | INFO: Blender create Mesh node Circle
+14:03:39 | INFO: Blender create Mesh node Circle.005
+14:03:39 | INFO: Blender create Mesh node Circle.008
+14:03:39 | INFO: Blender create Mesh node Circle.012
+14:03:39 | INFO: glTF import finished in 0.07s
+14:03:39 | INFO: Data are loaded, start creating Blender stuff
+14:03:39 | INFO: Blender create Mesh node Cube.002
+14:03:39 | INFO: glTF import finished in 0.02s
+14:03:39 | INFO: Data are loaded, start creating Blender stuff
+14:03:39 | INFO: Blender create Mesh node HaworthiaScan_Model_2.001
+14:03:39 | INFO: Blender create Mesh node Plane.118
+14:03:39 | INFO: Blender create Mesh node Plane.116
+14:03:39 | INFO: Blender create Mesh node Mesh
+14:03:39 | INFO: glTF import finished in 0.03s
+14:03:39 | INFO: Data are loaded, start creating Blender stuff
+14:03:39 | INFO: Blender create Mesh node wood_root_bowl_50k_uv.001
+14:03:39 | INFO: glTF import finished in 0.03s
+14:03:39 | INFO: Data are loaded, start creating Blender stuff
+14:03:39 | INFO: Blender create Mesh node lemon_01
+14:03:39 | INFO: glTF import finished in 0.02s
+14:03:39 | INFO: Data are loaded, start creating Blender stuff
+14:03:39 | INFO: Blender create Mesh node Planter_Pot_01
+14:03:39 | INFO: glTF import finished in 0.02s
+14:03:39 | INFO: Data are loaded, start creating Blender stuff
+14:03:39 | INFO: Blender create Mesh node Vert.001
+14:03:39 | INFO: glTF import finished in 0.04s
+14:03:39 | INFO: Data are loaded, start creating Blender stuff
+14:03:39 | INFO: Blender create Mesh node mesh
+14:03:40 | INFO: glTF import finished in 0.03s
+14:03:40 | INFO: Data are loaded, start creating Blender stuff
+14:03:40 | INFO: Blender create Mesh node Circle
+14:03:40 | INFO: Blender create Mesh node Circle.001
+14:03:40 | INFO: Blender create Mesh node low.008
+14:03:40 | INFO: glTF import finished in 0.12s
+14:03:40 | INFO: Data are loaded, start creating Blender stuff
+14:03:40 | INFO: Blender create Mesh node mesh.001
+14:03:40 | INFO: Blender create Mesh node Plane.002
+14:03:40 | INFO: Blender create Mesh node Circle.001
+14:03:40 | INFO: Blender create Mesh node Circle
+14:03:40 | INFO: Blender create Mesh node Cylinder.027
+14:03:40 | INFO: Blender create Mesh node Cylinder.118
+14:03:40 | INFO: Blender create Mesh node Cylinder.092
+14:03:40 | INFO: Blender create Mesh node Cylinder.051
+14:03:40 | INFO: glTF import finished in 0.14s
+variant pachira_aquatica_01#0 of 4 size cm [74, 65, 130]
+14:03:40 | INFO: Data are loaded, start creating Blender stuff
+14:03:40 | INFO: Blender create Mesh node mesh
+14:03:40 | INFO: Blender create Mesh node mesh.001
+14:03:40 | INFO: glTF import finished in 0.04s
+14:03:40 | INFO: Data are loaded, start creating Blender stuff
+14:03:40 | INFO: Blender create Mesh node Cube.001
+14:03:40 | INFO: glTF import finished in 0.04s
+14:03:40 | INFO: Data are loaded, start creating Blender stuff
+14:03:40 | INFO: Blender create Mesh node pomegranate_50k_uv.001
+14:03:40 | INFO: glTF import finished in 0.03s
+14:03:40 | INFO: Data are loaded, start creating Blender stuff
+14:03:40 | INFO: Blender create Mesh node Mesh
+14:03:40 | INFO: glTF import finished in 0.29s
+14:03:41 | INFO: Data are loaded, start creating Blender stuff
+14:03:41 | INFO: Blender create Mesh node potted_plant_01_base_low
+14:03:41 | INFO: Blender create Mesh node Circle.008
+14:03:41 | INFO: Blender create Mesh node Circle.002
+14:03:41 | INFO: Blender create Mesh node Plane.070
+14:03:41 | INFO: glTF import finished in 0.31s
+14:03:41 | INFO: Data are loaded, start creating Blender stuff
+14:03:41 | INFO: Blender create Mesh node Plane.014
+14:03:41 | INFO: Blender create Mesh node Plane.003
+14:03:41 | INFO: Blender create Mesh node Cylinder.012
+14:03:41 | INFO: Blender create Mesh node Plane.019
+14:03:41 | INFO: Blender create Mesh node Cylinder.015
+14:03:41 | INFO: glTF import finished in 0.07s
+variant calathea_orbifolia_01#0 of 5 size cm [60, 53, 42]
+14:03:41 | INFO: Data are loaded, start creating Blender stuff
+14:03:41 | INFO: Blender create Mesh node Plane.024
+14:03:41 | INFO: Blender create Mesh node Plane.044
+14:03:41 | INFO: Blender create Mesh node Plane.006
+14:03:41 | INFO: Blender create Mesh node Plane.059
+14:03:41 | INFO: glTF import finished in 0.04s
+variant fern_02#0 of 4 size cm [99, 89, 43]
+14:03:41 | INFO: Data are loaded, start creating Blender stuff
+14:03:41 | INFO: Blender create Mesh node Folding_Chair_Wood
+14:03:41 | INFO: Blender create Mesh node Folding_Table_Wood.001
+14:03:41 | INFO: Blender create Mesh node Folding_Chair_Wood.001
+14:03:42 | INFO: glTF import finished in 0.07s
+14:03:42 | INFO: Data are loaded, start creating Blender stuff
+14:03:42 | INFO: Blender create Mesh node mesh.001
+14:03:42 | INFO: Blender create Mesh node Plane.002
+14:03:42 | INFO: Blender create Mesh node Circle.001
+14:03:42 | INFO: Blender create Mesh node Circle
+14:03:42 | INFO: Blender create Mesh node Cylinder.027
+14:03:42 | INFO: Blender create Mesh node Cylinder.118
+14:03:42 | INFO: Blender create Mesh node Cylinder.092
+14:03:42 | INFO: Blender create Mesh node Cylinder.051
+14:03:42 | INFO: glTF import finished in 0.17s
+variant pachira_aquatica_01#1 of 4 size cm [50, 61, 74]
+14:03:42 | INFO: Data are loaded, start creating Blender stuff
+14:03:42 | INFO: Blender create Mesh node Plane.016
+14:03:42 | INFO: Blender create Mesh node Plane.026
+14:03:42 | INFO: Blender create Mesh node Plane.032
+14:03:42 | INFO: Blender create Mesh node Plane.039
+14:03:42 | INFO: Blender create Mesh node Plane.019
+14:03:42 | INFO: Blender create Mesh node Plane.020
+14:03:42 | INFO: glTF import finished in 0.16s
+variant anthurium_botany_01#0 of 6 size cm [90, 114, 50]
+14:03:42 | INFO: Data are loaded, start creating Blender stuff
+14:03:42 | INFO: Blender create Mesh node Plane
+14:03:42 | INFO: glTF import finished in 0.05s
+/Users/ylber/projects/floorplan/renders/shoot.py:78: DeprecationWarning: 'World.use_nodes' is expected to be removed in Blender 6.0
+  w.use_nodes = True

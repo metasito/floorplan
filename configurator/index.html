@@ -1,0 +1,50 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Unit 13 Configurator</title>
+<link rel="icon" href="data:,">
+<link rel="stylesheet" href="style.css">
+<script type="importmap">
+{ "imports": { "three": "./vendor/three/three.module.js", "three/addons/": "./vendor/three/addons/" } }
+</script>
+</head>
+<body>
+<header class="bar">
+  <div class="brand"><b>Unit 13</b><span>Configurator</span></div>
+  <div class="views" role="group" aria-label="View">
+    <button type="button" data-view="orbit" class="on">3D</button>
+    <button type="button" data-view="top">Plan</button>
+    <button type="button" data-view="walk">Walk</button>
+  </div>
+  <label class="check"><input type="checkbox" id="cut" checked> Cut walls</label>
+  <div class="spacer"></div>
+  <span class="hint" id="hint">Click a piece to select it. Drag the arrows to move it.</span>
+  <button type="button" id="undo" title="Undo (Cmd+Z)">Undo</button>
+</header>
+
+<aside class="left">
+  <nav class="tabs" role="tablist">
+    <button type="button" role="tab" data-tab="furniture" class="on">Furniture</button>
+    <button type="button" role="tab" data-tab="finishes">Rooms</button>
+    <button type="button" role="tab" data-tab="render">Render</button>
+    <button type="button" role="tab" data-tab="layouts">Layouts</button>
+  </nav>
+  <section class="tab" id="tab-furniture"></section>
+  <section class="tab" id="tab-finishes" hidden></section>
+  <section class="tab" id="tab-render" hidden></section>
+  <section class="tab" id="tab-layouts" hidden></section>
+</aside>
+
+<main id="stage">
+  <div id="frame" hidden></div>
+  <div id="loading">Loading the apartment…</div>
+</main>
+
+<aside class="right" id="inspector" hidden></aside>
+
+<div id="toast" role="status" hidden></div>
+<script type="module" src="app.js"></script>
+</body>
+</html>

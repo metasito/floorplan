@@ -1,0 +1,303 @@
+<title>Unit 13 Warm Scheme</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;1,6..72,400&family=Manrope:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500&display=swap">
+<style>
+/* Pannellum 2.5.6, https://github.com/mpetroff/pannellum */
+.pnlm-container{margin:0;padding:0;overflow:hidden;position:relative;cursor:default;width:100%;height:100%;font-family:Helvetica,"Nimbus Sans L","Liberation Sans",Arial,sans-serif;background:#f4f4f4 url('data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%2267%22%20height%3D%22100%22%20viewBox%3D%220%200%2067%20100%22%3E%0A%3Cpath%20stroke%3D%22%23ccc%22%20fill%3D%22none%22%20d%3D%22M33.5%2C50%2C0%2C63%2C33.5%2C75%2C67%2C63%2C33.5%2C50m-33.5-50%2C67%2C25m-0.5%2C0%2C0%2C75m-66.5-75%2C67-25m-33.5%2C75%2C0%2C25m0-100%2C0%2C50%22%2F%3E%0A%3C%2Fsvg%3E%0A') repeat;-webkit-user-select:none;-khtml-user-select:none;-moz-user-select:none;-o-user-select:none;-ms-user-select:none;user-select:none;outline:0;line-height:1.4;contain:content}.pnlm-container *{box-sizing:content-box}.pnlm-ui{position:absolute;width:100%;height:100%;z-index:1}.pnlm-grab{cursor:grab;cursor:url('data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20height%3D%2226%22%20width%3D%2226%22%3E%0A%3Cpath%20stroke%3D%22%23000%22%20stroke-width%3D%221px%22%20fill%3D%22%23fff%22%20d%3D%22m15.3%2020.5s6.38-6.73%204.64-8.24-3.47%201.01-3.47%201.01%203.61-5.72%201.41-6.49c-2.2-0.769-3.33%204.36-3.33%204.36s0.873-5.76-1.06-5.76-1.58%205.39-1.58%205.39-0.574-4.59-2.18-4.12c-1.61%200.468-0.572%205.51-0.572%205.51s-1.58-4.89-2.93-3.79c-1.35%201.11%200.258%205.25%200.572%206.62%200.836%202.43%202.03%202.94%202.17%205.55%22%2F%3E%0A%3C%2Fsvg%3E%0A') 12 8,default}.pnlm-grabbing{cursor:grabbing;cursor:url('data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20height%3D%2226%22%20width%3D%2226%22%3E%0A%3Cpath%20stroke%3D%22%23000%22%20stroke-width%3D%221px%22%20fill%3D%22%23fff%22%20d%3D%22m15.3%2020.5s5.07-5.29%203.77-6.74c-1.31-1.45-2.53%200.14-2.53%200.14s2.74-3.29%200.535-4.06c-2.2-0.769-2.52%201.3-2.52%201.3s0.81-2.13-1.12-2.13-1.52%201.77-1.52%201.77-0.261-1.59-1.87-1.12c-1.61%200.468-0.874%202.17-0.874%202.17s-0.651-1.55-2-0.445c-1.35%201.11-0.68%202.25-0.365%203.62%200.836%202.43%202.03%202.94%202.17%205.55%22%2F%3E%0A%3C%2Fsvg%3E%0A') 12 8,default}.pnlm-sprite{background-image:url('data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%2226%22%20height%3D%22208%22%3E%0A%3Ccircle%20fill-opacity%3D%22.78%22%20cy%3D%22117%22%20cx%3D%2213%22%20r%3D%2211%22%20fill%3D%22%23fff%22%2F%3E%0A%3Ccircle%20fill-opacity%3D%22.78%22%20cy%3D%22143%22%20cx%3D%2213%22%20r%3D%2211%22%20fill%3D%22%23fff%22%2F%3E%0A%3Ccircle%20cy%3D%22169%22%20cx%3D%2213%22%20r%3D%227%22%20fill%3D%22none%22%20stroke%3D%22%23000%22%20stroke-width%3D%222%22%2F%3E%0A%3Ccircle%20cy%3D%22195%22%20cx%3D%2213%22%20r%3D%227%22%20fill%3D%22none%22%20stroke%3D%22%23000%22%20stroke-width%3D%222%22%2F%3E%0A%3Ccircle%20cx%3D%2213%22%20cy%3D%22195%22%20r%3D%222.5%22%2F%3E%0A%3Cpath%20d%3D%22m5%2083v6h2v-4h4v-2zm10%200v2h4v4h2v-6zm-5%205v6h6v-6zm-5%205v6h6v-2h-4v-4zm14%200v4h-4v2h6v-6z%22%2F%3E%0A%3Cpath%20d%3D%22m13%20110a7%207%200%200%200%20-7%207%207%207%200%200%200%207%207%207%207%200%200%200%207%20-7%207%207%200%200%200%20-7%20-7zm-1%203h2v2h-2zm0%203h2v5h-2z%22%2F%3E%0A%3Cpath%20d%3D%22m5%2057v6h2v-4h4v-2zm10%200v2h4v4h2v-6zm-10%2010v6h6v-2h-4v-4zm14%200v4h-4v2h6v-6z%22%2F%3E%0A%3Cpath%20d%3D%22m17%2038v2h-8v-2z%22%2F%3E%0A%3Cpath%20d%3D%22m12%209v3h-3v2h3v3h2v-3h3v-2h-3v-3z%22%2F%3E%0A%3Cpath%20d%3D%22m13%20136-6.125%206.125h4.375v7.875h3.5v-7.875h4.375z%22%2F%3E%0A%3Cpath%20d%3D%22m10.428%20173.33v-5.77l5-2.89v5.77zm1-1.73%203-1.73-3.001-1.74z%22%2F%3E%0A%3C%2Fsvg%3E%0A')}.pnlm-container:-moz-full-screen{height:100%!important;width:100%!important;position:static!important}.pnlm-container:-webkit-full-screen{height:100%!important;width:100%!important;position:static!important}.pnlm-container:-ms-fullscreen{height:100%!important;width:100%!important;position:static!important}.pnlm-container:fullscreen{height:100%!important;width:100%!important;position:static!important}.pnlm-render-container{cursor:inherit;position:absolute;height:100%;width:100%}.pnlm-controls{margin-top:4px;background-color:#fff;border:1px solid #999;border-color:rgba(0,0,0,0.4);border-radius:3px;cursor:pointer;z-index:2;-webkit-transform:translateZ(9999px);transform:translateZ(9999px)}.pnlm-control:hover{background-color:#f8f8f8}.pnlm-controls-container{position:absolute;top:0;left:4px;z-index:1}.pnlm-zoom-controls{width:26px;height:52px}.pnlm-zoom-in{width:100%;height:50%;position:absolute;top:0;border-radius:3px 3px 0 0}.pnlm-zoom-out{width:100%;height:50%;position:absolute;bottom:0;background-position:0 -26px;border-top:1px solid #ddd;border-top-color:rgba(0,0,0,0.10);border-radius:0 0 3px 3px}.pnlm-fullscreen-toggle-button,.pnlm-orientation-button,.pnlm-hot-spot-debug-indicator{width:26px;height:26px}.pnlm-hot-spot-debug-indicator{position:absolute;top:50%;left:50%;width:26px;height:26px;margin:-13px 0 0 -13px;background-color:rgba(255,255,255,0.5);border-radius:13px;display:none}.pnlm-orientation-button-inactive{background-position:0 -156px}.pnlm-orientation-button-active{background-position:0 -182px}.pnlm-fullscreen-toggle-button-inactive{background-position:0 -52px}.pnlm-fullscreen-toggle-button-active{background-position:0 -78px}.pnlm-panorama-info{position:absolute;bottom:4px;background-color:rgba(0,0,0,0.7);border-radius:0 3px 3px 0;padding-right:10px;color:#fff;text-align:left;display:none;z-index:2;-webkit-transform:translateZ(9999px);transform:translateZ(9999px)}.pnlm-title-box{position:relative;font-size:20px;display:table;padding-left:5px;margin-bottom:3px}.pnlm-author-box{position:relative;font-size:12px;display:table;padding-left:5px}.pnlm-load-box{position:absolute;top:50%;left:50%;width:200px;height:150px;margin:-75px 0 0 -100px;background-color:rgba(0,0,0,0.7);border-radius:3px;text-align:center;font-size:20px;display:none;color:#fff}.pnlm-load-box p{margin:20px 0}.pnlm-lbox{position:absolute;top:50%;left:50%;width:20px;height:20px;margin:-10px 0 0 -10px;display:none}.pnlm-loading{animation-duration:1.5s;-webkit-animation-duration:1.5s;animation-name:pnlm-mv;-webkit-animation-name:pnlm-mv;animation-iteration-count:infinite;-webkit-animation-iteration-count:infinite;animation-timing-function:linear;-webkit-animation-timing-function:linear;height:10px;width:10px;background-color:#fff;position:relative}@keyframes pnlm-mv{from{left:0;top:0}25%{left:10px;top:0}50%{left:10px;top:10px}75%{left:0;top:10px}to{left:0;top:0}}@-webkit-keyframes pnlm-mv{from{left:0;top:0}25%{left:10px;top:0}50%{left:10px;top:10px}75%{left:0;top:10px}to{left:0;top:0}}.pnlm-load-button{position:absolute;top:50%;left:50%;width:200px;height:100px;margin:-50px 0 0 -100px;background-color:rgba(0,0,0,.7);border-radius:3px;text-align:center;font-size:20px;display:table;color:#fff;cursor:pointer}.pnlm-load-button:hover{background-color:rgba(0,0,0,.8)}.pnlm-load-button p{display:table-cell;vertical-align:middle}.pnlm-info-box{font-size:15px;position:absolute;top:50%;left:50%;width:200px;height:150px;margin:-75px 0 0 -100px;background-color:#000;border-radius:3px;display:table;text-align:center;color:#fff;table-layout:fixed}.pnlm-info-box a,.pnlm-author-box a{color:#fff;word-wrap:break-word;overflow-wrap:break-word}.pnlm-info-box p{display:table-cell;vertical-align:middle;padding:0 5px 0 5px}.pnlm-error-msg{display:none}.pnlm-about-msg{font-size:11px;line-height:11px;color:#fff;padding:5px 8px 5px 8px;background:rgba(0,0,0,0.7);border-radius:3px;position:absolute;top:50px;left:50px;display:none;opacity:0;-moz-transition:opacity .3s ease-in-out;-webkit-transition:opacity .3s ease-in-out;-o-transition:opacity .3s ease-in-out;-ms-transition:opacity .3s ease-in-out;transition:opacity .3s ease-in-out;z-index:1}.pnlm-about-msg a:link,.pnlm-about-msg a:visited{color:#fff}.pnlm-about-msg a:hover,.pnlm-about-msg a:active{color:#eee}.pnlm-hotspot-base{position:absolute;visibility:hidden;cursor:default;vertical-align:middle;top:0;z-index:1}.pnlm-hotspot{height:26px;width:26px;border-radius:13px}.pnlm-hotspot:hover{background-color:rgba(255,255,255,0.2)}.pnlm-hotspot.pnlm-info{background-position:0 -104px}.pnlm-hotspot.pnlm-scene{background-position:0 -130px}div.pnlm-tooltip span{visibility:hidden;position:absolute;border-radius:3px;background-color:rgba(0,0,0,0.7);color:#fff;text-align:center;max-width:200px;padding:5px 10px;margin-left:-220px;cursor:default}div.pnlm-tooltip:hover span{visibility:visible}div.pnlm-tooltip:hover span:after{content:'';position:absolute;width:0;height:0;border-width:10px;border-style:solid;border-color:rgba(0,0,0,0.7) transparent transparent transparent;bottom:-20px;left:-10px;margin:0 50%}.pnlm-compass{position:absolute;width:50px;height:50px;right:4px;bottom:4px;border-radius:25px;background-image:url('data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20height%3D%2250%22%20width%3D%2250%22%3E%0A%3Cpath%20d%3D%22m24.5078%206-3.2578%2018h7.5l-3.25781-18h-0.984376zm-3.2578%2020%203.2578%2018h0.9844l3.2578-18h-7.5zm1.19531%200.9941h5.10938l-2.5547%2014.1075-2.5547-14.1075z%22%2F%3E%0A%3C%2Fsvg%3E%0A');cursor:default;display:none}.pnlm-world{position:absolute;left:50%;top:50%}.pnlm-face{position:absolute;-webkit-transform-origin:0 0;transform-origin:0 0}.pnlm-dragfix,.pnlm-preview-img{position:absolute;height:100%;width:100%}.pnlm-preview-img{background-size:cover;background-position:center}.pnlm-lbar{width:150px;margin:0 auto;border:#fff 1px solid;height:6px}.pnlm-lbar-fill{background:#fff;height:100%;width:0}.pnlm-lmsg{font-size:12px}.pnlm-fade-img{position:absolute;top:0;left:0}.pnlm-pointer{cursor:pointer}
+/* Layout: a printed interiors brief. Wide image plates, a narrow text column beside each,
+   figures set in mono like a drawing's annotations. */
+:root {
+  --bg: #f1efeb; --surface: #e7e3dc; --ink: #24211e; --muted: #6e675f; --rule: #d3cdc4;
+  --accent: #5d6b54; --accent-ink: #f4f2ee; --warm: #a4593a; --lb-ink: #e9e4dc; --lb-rule: #6d665e;
+  --display: "Newsreader", Georgia, "Times New Roman", serif;
+  --body: "Manrope", "Avenir Next", "Segoe UI", system-ui, sans-serif;
+  --mono: "IBM Plex Mono", ui-monospace, "SF Mono", Menlo, monospace;
+  --wrap: 1240px;
+}
+@media (prefers-color-scheme: dark) { :root:not([data-theme="light"]) {
+  --bg: #1b1a18; --surface: #262421; --ink: #ece7df; --muted: #a79f94; --rule: #3a3632;
+  --accent: #a9b89c; --accent-ink: #1b1a18; --warm: #d38a67; color-scheme: dark } }
+:root[data-theme="dark"] {
+  --bg: #1b1a18; --surface: #262421; --ink: #ece7df; --muted: #a79f94; --rule: #3a3632;
+  --accent: #a9b89c; --accent-ink: #1b1a18; --warm: #d38a67; color-scheme: dark }
+* { box-sizing: border-box }
+body { background: var(--bg); color: var(--ink); font: 400 16px/1.6 var(--body); }
+.wrap { max-width: var(--wrap); margin: 0 auto; padding-left: max(16px, env(safe-area-inset-left, 0px));
+  padding-right: max(16px, env(safe-area-inset-right, 0px)); }
+h1, h2, h3 { font-family: var(--display); font-weight: 400; text-wrap: balance; margin: 0; letter-spacing: -0.01em }
+h2 { font-size: clamp(30px, 4vw, 44px); line-height: 1.1 }
+h3 { font-size: clamp(26px, 3vw, 34px); line-height: 1.15 }
+p { margin: 0 }
+.label { font: 500 12px/1.4 var(--mono); letter-spacing: 0.08em; text-transform: uppercase; color: var(--muted) }
+a { color: inherit }
+:focus-visible { outline: 2px solid var(--accent); outline-offset: 3px }
+
+header.top { border-bottom: 1px solid var(--rule) }
+header.top .wrap { display: flex; flex-wrap: wrap; gap: 8px 24px; justify-content: space-between; align-items: baseline; padding-block: 14px }
+header.top nav { display: flex; flex-wrap: wrap; gap: 4px 18px }
+header.top nav a { text-decoration: none; font-size: 14px; color: var(--muted) }
+header.top nav a:hover { color: var(--ink) }
+.brand { font: 500 13px/1.4 var(--mono); letter-spacing: 0.06em }
+
+.hero { margin-top: 24px }
+.hero img { display: block; width: 100%; max-width: 100%; height: auto; aspect-ratio: 3 / 2; max-height: 78vh; object-fit: cover; border-radius: 4px }
+.hero-text { display: grid; grid-template-columns: minmax(0, 1.4fr) minmax(0, 1fr); gap: 24px 48px; padding-block: 28px 8px; align-items: end }
+.hero-text h1 { font-size: clamp(40px, 6.5vw, 84px); line-height: 0.98 }
+.hero-text h1 em { font-style: italic; color: var(--warm) }
+.facts { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 14px 24px; margin: 0 }
+.facts div { border-top: 1px solid var(--rule); padding-top: 8px; min-width: 0 }
+.facts dt { font: 500 11px/1.4 var(--mono); letter-spacing: 0.08em; text-transform: uppercase; color: var(--muted) }
+.facts dd { margin: 2px 0 0; font: 500 19px/1.3 var(--mono); font-variant-numeric: tabular-nums }
+
+section { padding-block: 72px 0 }
+.section-head { display: flex; flex-wrap: wrap; gap: 8px 24px; align-items: baseline; justify-content: space-between;
+  border-top: 1px solid var(--ink); padding-top: 14px; margin-bottom: 32px }
+.section-head p { max-width: 60ch; color: var(--muted) }
+
+.scheme { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: 40px 64px }
+.concept { display: grid; gap: 16px; font-size: 18px; line-height: 1.65; max-width: 62ch }
+.materials { margin: 32px 0 0; display: grid; gap: 14px }
+.materials div { display: grid; grid-template-columns: 110px minmax(0, 1fr); gap: 16px; border-top: 1px solid var(--rule); padding-top: 12px }
+.materials dt { font: 500 12px/1.6 var(--mono); letter-spacing: 0.08em; text-transform: uppercase; color: var(--accent) }
+.materials dd { margin: 0 }
+.palette { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 18px 20px; align-content: start }
+.palette li { display: grid; grid-template-columns: 56px minmax(0, 1fr); column-gap: 14px; align-items: center }
+.palette .chip { grid-row: 1 / 4; width: 56px; height: 56px; border-radius: 50%; box-shadow: inset 0 0 0 1px rgb(0 0 0 / 0.08) }
+.palette b { font-weight: 600; font-size: 15px }
+.palette code { font: 400 12px/1.4 var(--mono); color: var(--muted) }
+.palette small { font-size: 13px; color: var(--muted) }
+
+.room { display: grid; grid-template-columns: minmax(0, 1.7fr) minmax(0, 1fr); gap: 28px 48px; padding-block: 36px; border-top: 1px solid var(--rule) }
+.room:first-of-type { border-top: 0; padding-top: 0 }
+.room-media { display: grid; gap: 16px; align-content: start; min-width: 0 }
+.shot { margin: 0; min-width: 0 }
+.shot .zoom { display: block; width: 100%; padding: 0; border: 0; background: var(--surface); cursor: zoom-in; border-radius: 4px; overflow: hidden }
+.shot img { display: block; width: 100%; max-width: 100%; height: auto; aspect-ratio: 3 / 2; object-fit: cover; transition: transform .5s ease }
+.shot .zoom:hover img { transform: scale(1.015) }
+.shot figcaption { font: 400 12px/1.5 var(--mono); color: var(--muted); margin-top: 8px }
+.room-text { display: grid; gap: 18px; align-content: start; min-width: 0 }
+.room-text > p { max-width: 52ch }
+.pieces { list-style: none; margin: 0; padding: 0; border-top: 1px solid var(--rule) }
+.pieces li { display: flex; justify-content: space-between; gap: 16px; padding-block: 10px; border-bottom: 1px solid var(--rule) }
+.piece { display: grid; min-width: 0 }
+.piece b { font-weight: 600; font-size: 15px }
+.piece small { color: var(--muted); font-size: 13px }
+.price { font: 400 13px/1.6 var(--mono); white-space: nowrap; font-variant-numeric: tabular-nums }
+.room-total { display: flex; justify-content: space-between; gap: 16px; font: 500 14px/1.4 var(--mono); color: var(--warm); font-variant-numeric: tabular-nums }
+.to-tour, .scene-chip { font: 600 14px/1 var(--body); border-radius: 999px; padding: 11px 16px; cursor: pointer; border: 1px solid var(--accent) }
+.to-tour { justify-self: start; background: var(--accent); color: var(--accent-ink) }
+.to-tour:hover { filter: brightness(1.06) }
+
+#viewer { width: 100%; max-width: 100%; aspect-ratio: 16 / 9; max-height: 80vh; border-radius: 4px; overflow: hidden; background: var(--surface) }
+.scenes { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 16px }
+.scene-chip { background: transparent; color: var(--ink); border-color: var(--rule) }
+.scene-chip[aria-pressed="true"] { background: var(--accent); color: var(--accent-ink); border-color: var(--accent) }
+.tour-note { margin-top: 12px; color: var(--muted); font-size: 14px; max-width: 70ch }
+.pnlm-hotspot-base.pnlm-scene { filter: drop-shadow(0 1px 3px rgb(0 0 0 / .45)) }
+.pnlm-tooltip span { font-family: var(--body) }
+
+.plans { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1.5fr); gap: 24px; align-items: start }
+.plans .square img { aspect-ratio: 1 / 1 }
+
+.budget { display: grid; grid-template-columns: minmax(0, 1.2fr) minmax(0, 1fr); gap: 40px 64px }
+.budget > div { min-width: 0 }
+.budget table { width: 100%; border-collapse: collapse; font-variant-numeric: tabular-nums }
+.budget th, .budget td { text-align: left; padding: 12px 0; border-bottom: 1px solid var(--rule); font-weight: 400 }
+.budget td { text-align: right; font: 400 14px/1.4 var(--mono); white-space: nowrap }
+.budget th a { text-decoration: none }
+.budget th a:hover { text-decoration: underline }
+.budget tfoot th, .budget tfoot td { color: var(--warm); font-weight: 600; border-bottom: 0; font-size: 17px }
+.budget h3 { font-size: 24px; margin-bottom: 16px }
+.tips { display: grid; gap: 14px; margin: 0; padding-left: 20px }
+.tips li::marker { color: var(--warm) }
+.note { color: var(--muted); font-size: 13px; margin-top: 16px; max-width: 70ch }
+footer .wrap { padding-block: 72px 48px; color: var(--muted); font-size: 13px }
+
+dialog.lightbox { border: 0; padding: 0; max-width: 96vw; max-height: 94vh; background: transparent }
+dialog.lightbox::backdrop { background: rgb(12 11 10 / 0.88) }
+dialog.lightbox img { display: block; max-width: 96vw; max-height: 86vh; width: auto; height: auto; border-radius: 3px }
+dialog.lightbox p { color: var(--lb-ink); font: 400 13px/1.5 var(--mono); margin-top: 8px; display: flex; justify-content: space-between; gap: 16px }
+dialog.lightbox button { background: none; border: 1px solid var(--lb-rule); color: var(--lb-ink); border-radius: 999px; padding: 4px 12px; cursor: pointer; font: inherit }
+
+@media (max-width: 860px) {
+  .hero-text, .scheme, .room, .plans, .budget { grid-template-columns: minmax(0, 1fr) }
+  .palette { grid-template-columns: minmax(0, 1fr) }
+  #viewer { aspect-ratio: 4 / 3 }
+}
+@media (prefers-reduced-motion: reduce) { .shot img { transition: none } }
+</style>
+
+<header class="top"><div class="wrap">
+  <span class="brand">UNIT 13 · REV D</span>
+  <nav aria-label="Sections"><a href="#scheme">Scheme</a><a href="#rooms">Rooms</a><a href="#tour">360° tour</a><a href="#plan">Plan</a><a href="#budget">Budget</a></nav>
+</div></header>
+
+<main class="wrap">
+  <div class="hero">
+    <img src="img/living_dusk.jpg" alt="Living room at dusk: linen sofas, rattan pendants over the oak table, the sea through the balcony doors" width="2400" height="1600">
+  </div>
+  <div class="hero-text">
+    <h1>Apartment Unit 13, <em>warm and open</em></h1>
+    <dl class="facts">
+      <div><dt>Interior</dt><dd>87.32 m²</dd></div>
+      <div><dt>Balconies</dt><dd>17.95 m²</dd></div>
+      <div><dt>Rooms</dt><dd>2 bed · 2 bath</dd></div>
+      <div><dt>Indicative fit-out</dt><dd>€21 000–€36 000</dd></div>
+    </dl>
+  </div>
+
+  <section id="scheme">
+    <div class="section-head"><h2>The scheme</h2><p class="label">Warm Mediterranean, on an everyday budget</p></div>
+    <div class="scheme">
+      <div><div class="concept"><p>Sea light does most of the work. Walls are a warm, chalky white; one light oak floor runs unbroken through every dry room, so the hall, kitchen and living room read as one open space and the 87 m² feel larger.</p><p>Colour comes from the earth, not from paint charts: a clay limewash behind the TV, sage behind the main bed and on the kitchen fronts, terracotta and ochre in the textiles, terracotta tiles outside. Texture does the rest: linen, jute, rattan, cane and glazed zellige-look tiles.</p><p>Everything shown is a standard, widely available kind of piece. The only made-to-measure item is the kitchen, and it is flat-pack with painted fronts.</p></div><dl class="materials"><div><dt>Floors</dt><dd>Light oak-look engineered board or laminate in every dry room; terrazzo-look porcelain in the bathrooms; terracotta tiles on both balconies.</dd></div><div><dt>Walls</dt><dd>Warm white matt emulsion; mineral limewash on the two accent walls; a clay band to 105 cm in bedroom 2.</dd></div><div><dt>Kitchen</dt><dd>Painted sage fronts with brass knobs, oak worktop, cream zellige-look splashback, open oak shelves, warm LED under the cupboards.</dd></div><div><dt>Bathrooms</dt><dd>10 × 10 glazed zellige-look tiles: sand in the en-suite, sage in bathroom 2. Oak vanities, white vessel basins, brushed-brass fittings, walk-in showers behind glass.</dd></div><div><dt>Light</dt><dd>Warm 2700 K throughout: rattan and paper pendants, linen-shaded lamps, small recessed downlights in the hall, kitchen and bathrooms.</dd></div></dl></div>
+      <ul class="palette" aria-label="Palette"><li><span class="chip" style="background:#ece6dc"></span><b>Warm white</b><code>#ECE6DC</code><small>walls, trim, built-ins</small></li><li><span class="chip" style="background:#c3a58a"></span><b>Clay limewash</b><code>#C3A58A</code><small>living room TV wall</small></li><li><span class="chip" style="background:#a9b29a"></span><b>Sage limewash</b><code>#A9B29A</code><small>behind the main bed</small></li><li><span class="chip" style="background:#8f9a85"></span><b>Kitchen sage</b><code>#8F9A85</code><small>kitchen fronts</small></li><li><span class="chip" style="background:#b4643e"></span><b>Terracotta</b><code>#B4643E</code><small>cushions, pots, balcony tiles</small></li><li><span class="chip" style="background:#c99540"></span><b>Ochre</b><code>#C99540</code><small>accents</small></li><li><span class="chip" style="background:#c9a57d"></span><b>Light oak</b><code>#C9A57D</code><small>floor, tables, joinery</small></li><li><span class="chip" style="background:#ddd3c2"></span><b>Oatmeal linen</b><code>#DDD3C2</code><small>sofas, bed, curtains</small></li><li><span class="chip" style="background:#c8a66a"></span><b>Brushed brass</b><code>#C8A66A</code><small>taps, knobs, mirrors</small></li><li><span class="chip" style="background:#3c3f42"></span><b>Anthracite</b><code>#3C3F42</code><small>window frames (existing)</small></li></ul>
+    </div>
+  </section>
+
+  <section id="rooms">
+    <div class="section-head"><h2>Room by room</h2><p>Every room on the revised plan, furnished to the plan's footprints. Click a picture to see it full size.</p></div>
+    
+<article class="room" id="living">
+  <div class="room-media"><figure class="shot "><button class="zoom" type="button" data-full="img/living_day.jpg" data-cap="Living room toward the sea, morning" aria-label="Enlarge: Living room toward the sea, morning"><img src="img/living_day_s.jpg" alt="Living room toward the sea, morning" loading="lazy" width="1100" height="733"></button><figcaption>Living room toward the sea, morning</figcaption></figure><figure class="shot "><button class="zoom" type="button" data-full="img/living_dusk.jpg" data-cap="Living room at dusk" aria-label="Enlarge: Living room at dusk"><img src="img/living_dusk_s.jpg" alt="Living room at dusk" loading="lazy" width="1100" height="733"></button><figcaption>Living room at dusk</figcaption></figure></div>
+  <div class="room-text">
+    <h3>Living room</h3>
+    <p>The plan&#x27;s L-shaped seating faces the TV wall; the doors to Balcony A and the window to the right bring the sea in. The clay limewash wall warms the room in the evening.</p>
+    <button class="to-tour" type="button" data-scene="pano_living">Look around this room in 360°</button>
+    <ul class="pieces"><li><span class="piece"><b>3-seat sofa</b><small>oatmeal linen, oak legs, 216 cm</small></span><span class="price">€900–€1 400</span></li><li><span class="piece"><b>2-seat sofa</b><small>matching, 160 cm</small></span><span class="price">€700–€1 000</span></li><li><span class="piece"><b>Jute rug</b><small>200 × 300</small></span><span class="price">€180–€320</span></li><li><span class="piece"><b>Coffee table</b><small>oak, rounded, 104 × 64</small></span><span class="price">€220–€380</span></li><li><span class="piece"><b>Media unit</b><small>oak with cane fronts, 276 cm</small></span><span class="price">€400–€650</span></li><li><span class="piece"><b>Side table, floor lamp, table lamp</b><small>oak tripod, linen shades, terracotta base</small></span><span class="price">€230–€400</span></li><li><span class="piece"><b>Sheer linen curtains</b><small>four panels on ceiling tracks</small></span><span class="price">€250–€400</span></li><li><span class="piece"><b>Cushions, throw, ceramics, plants</b></span><span class="price">€250–€450</span></li></ul>
+    <p class="room-total"><span>Room total</span><span>€3 130–€5 000</span></p>
+  </div>
+</article>
+<article class="room" id="kitchen">
+  <div class="room-media"><figure class="shot "><button class="zoom" type="button" data-full="img/kitchen_day.jpg" data-cap="Kitchen and dining" aria-label="Enlarge: Kitchen and dining"><img src="img/kitchen_day_s.jpg" alt="Kitchen and dining" loading="lazy" width="1100" height="733"></button><figcaption>Kitchen and dining</figcaption></figure></div>
+  <div class="room-text">
+    <h3>Kitchen and dining</h3>
+    <p>The full 5.1 m run as revision C: unit order unchanged, moved toward the balcony to end at the storage. Open oak shelves over the sink keep it light; the oak table sits between kitchen and living room.</p>
+    <button class="to-tour" type="button" data-scene="pano_dining">Look around this room in 360°</button>
+    <ul class="pieces"><li><span class="piece"><b>Kitchen run, 5.1 m</b><small>sage painted fronts, brass knobs, oak worktop</small></span><span class="price">€4 500–€7 000</span></li><li><span class="piece"><b>Zellige-look splashback</b><small>about 3 m², cream</small></span><span class="price">€150–€300</span></li><li><span class="piece"><b>Ceramic sink and bridge tap</b><small>brushed brass</small></span><span class="price">€300–€500</span></li><li><span class="piece"><b>Open shelves and LED strips</b><small>oak, 2700 K</small></span><span class="price">€150–€300</span></li><li><span class="piece"><b>Dining table</b><small>oak, 180 × 85, rounded corners</small></span><span class="price">€550–€900</span></li><li><span class="piece"><b>Six dining chairs</b><small>oak, paper-cord seats</small></span><span class="price">€600–€1 000</span></li><li><span class="piece"><b>Two rattan pendants</b></span><span class="price">€120–€240</span></li></ul>
+    <p class="room-total"><span>Room total</span><span>€6 370–€10 240</span></p>
+  </div>
+</article>
+<article class="room" id="hall">
+  <div class="room-media"><figure class="shot "><button class="zoom" type="button" data-full="img/hall.jpg" data-cap="From the front door: the corridor runs to the sea" aria-label="Enlarge: From the front door: the corridor runs to the sea"><img src="img/hall_s.jpg" alt="From the front door: the corridor runs to the sea" loading="lazy" width="1100" height="733"></button><figcaption>From the front door: the corridor runs to the sea</figcaption></figure></div>
+  <div class="room-text">
+    <h3>Entrance and hall</h3>
+    <p>From the front door the corridor runs straight to the sea. Wardrobes either side of the entrance take coats and shoes; the storage now opens off the corridor, like the other rooms.</p>
+    <button class="to-tour" type="button" data-scene="pano_hall">Look around this room in 360°</button>
+    <ul class="pieces"><li><span class="piece"><b>Built-in wardrobes</b><small>2 × 180 cm, warm white, oak pulls</small></span><span class="price">€1 200–€2 000</span></li><li><span class="piece"><b>Bench, hook rail, round mirror</b><small>oak and brass</small></span><span class="price">€250–€450</span></li><li><span class="piece"><b>Jute runner</b><small>76 × 290</small></span><span class="price">€60–€120</span></li><li><span class="piece"><b>Storage shelving and baskets</b></span><span class="price">€150–€300</span></li><li><span class="piece"><b>Prints and frames</b></span><span class="price">€80–€160</span></li></ul>
+    <p class="room-total"><span>Room total</span><span>€1 740–€3 030</span></p>
+  </div>
+</article>
+<article class="room" id="bedroom1">
+  <div class="room-media"><figure class="shot "><button class="zoom" type="button" data-full="img/bedroom1.jpg" data-cap="Main bedroom" aria-label="Enlarge: Main bedroom"><img src="img/bedroom1_s.jpg" alt="Main bedroom" loading="lazy" width="1100" height="733"></button><figcaption>Main bedroom</figcaption></figure></div>
+  <div class="room-text">
+    <h3>Main bedroom</h3>
+    <p>A calm sage wall behind the bed, oak and linen everywhere else. The en-suite opens off this room; the cut-down wardrobe sits by its door and a dresser takes the far wall.</p>
+    <button class="to-tour" type="button" data-scene="pano_bedroom1">Look around this room in 360°</button>
+    <ul class="pieces"><li><span class="piece"><b>Upholstered bed</b><small>180 × 200, oatmeal linen headboard</small></span><span class="price">€500–€900</span></li><li><span class="piece"><b>Two nightstands</b><small>oak, one drawer</small></span><span class="price">€200–€360</span></li><li><span class="piece"><b>Bedding and throw</b><small>white linen, terracotta waffle</small></span><span class="price">€200–€350</span></li><li><span class="piece"><b>Berber-style rug</b><small>230 × 230</small></span><span class="price">€200–€380</span></li><li><span class="piece"><b>Wardrobe and dresser</b><small>oak, 87 cm and 122 cm</small></span><span class="price">€600–€1 000</span></li><li><span class="piece"><b>Rattan pendant, lamps, mirror</b></span><span class="price">€200–€350</span></li><li><span class="piece"><b>Linen curtains and sage limewash</b></span><span class="price">€160–€300</span></li></ul>
+    <p class="room-total"><span>Room total</span><span>€2 060–€3 640</span></p>
+  </div>
+</article>
+<article class="room" id="bedroom2">
+  <div class="room-media"><figure class="shot "><button class="zoom" type="button" data-full="img/bedroom2.jpg" data-cap="Bedroom two and Balcony B" aria-label="Enlarge: Bedroom two and Balcony B"><img src="img/bedroom2_s.jpg" alt="Bedroom two and Balcony B" loading="lazy" width="1100" height="733"></button><figcaption>Bedroom two and Balcony B</figcaption></figure></div>
+  <div class="room-text">
+    <h3>Bedroom two</h3>
+    <p>A guest room that works as a study: single bed along the wall, a desk under a shelf, and the glazed door to Balcony B. The clay band to 105 cm makes it cosy without darkening it.</p>
+    <button class="to-tour" type="button" data-scene="pano_bedroom2">Look around this room in 360°</button>
+    <ul class="pieces"><li><span class="piece"><b>Single bed</b><small>90 × 190, upholstered</small></span><span class="price">€250–€450</span></li><li><span class="piece"><b>Desk with drawers and shelf</b><small>oak</small></span><span class="price">€250–€400</span></li><li><span class="piece"><b>Wardrobes</b><small>3 modules, warm white</small></span><span class="price">€600–€1 000</span></li><li><span class="piece"><b>Rug, paper pendant, lamps</b><small>flat-weave stripe</small></span><span class="price">€150–€260</span></li><li><span class="piece"><b>Bedding, curtains, clay paint</b></span><span class="price">€180–€320</span></li></ul>
+    <p class="room-total"><span>Room total</span><span>€1 430–€2 430</span></p>
+  </div>
+</article>
+<article class="room" id="baths">
+  <div class="room-media"><figure class="shot "><button class="zoom" type="button" data-full="img/bath1.jpg" data-cap="En-suite" aria-label="Enlarge: En-suite"><img src="img/bath1_s.jpg" alt="En-suite" loading="lazy" width="1100" height="733"></button><figcaption>En-suite</figcaption></figure><figure class="shot "><button class="zoom" type="button" data-full="img/bath2.jpg" data-cap="Bathroom two" aria-label="Enlarge: Bathroom two"><img src="img/bath2_s.jpg" alt="Bathroom two" loading="lazy" width="1100" height="733"></button><figcaption>Bathroom two</figcaption></figure></div>
+  <div class="room-text">
+    <h3>Bathrooms</h3>
+    <p>The en-suite keeps the revised layout, with WC and bidet moved 10 cm left to clear the shower glass, and a tall oak cupboard housing boiler and washer. Bathroom 2 repeats the recipe in sage.</p>
+    <button class="to-tour" type="button" data-scene="pano_bath1">Look around the en-suite in 360°</button>
+    <ul class="pieces"><li><span class="piece"><b>Tiles, both bathrooms</b><small>zellige-look walls, terrazzo-look floors</small></span><span class="price">€1 200–€2 200</span></li><li><span class="piece"><b>Two oak vanities and basins</b><small>wall-hung, brass wall taps</small></span><span class="price">€900–€1 600</span></li><li><span class="piece"><b>Two walk-in showers</b><small>glass panels, brass rain sets</small></span><span class="price">€1 200–€2 000</span></li><li><span class="piece"><b>Wall-hung WCs and bidets</b><small>with concealed frames</small></span><span class="price">€1 400–€2 400</span></li><li><span class="piece"><b>Mirrors, rails, accessories</b><small>brass</small></span><span class="price">€300–€600</span></li><li><span class="piece"><b>Tall utility cupboard</b><small>boiler and washer, oak fronts</small></span><span class="price">€300–€500</span></li></ul>
+    <p class="room-total"><span>Room total</span><span>€5 300–€9 300</span></p>
+  </div>
+</article>
+<article class="room" id="balconies">
+  <div class="room-media"><figure class="shot "><button class="zoom" type="button" data-full="img/balcony_a.jpg" data-cap="Balcony A, evening" aria-label="Enlarge: Balcony A, evening"><img src="img/balcony_a_s.jpg" alt="Balcony A, evening" loading="lazy" width="1100" height="733"></button><figcaption>Balcony A, evening</figcaption></figure><figure class="shot "><button class="zoom" type="button" data-full="img/balcony_b.jpg" data-cap="Balcony B" aria-label="Enlarge: Balcony B"><img src="img/balcony_b_s.jpg" alt="Balcony B" loading="lazy" width="1100" height="733"></button><figcaption>Balcony B</figcaption></figure></div>
+  <div class="room-text">
+    <h3>Balconies</h3>
+    <p>Balcony A, off the living room, is for the sea: a bistro table by the doors and a cushioned bench along the wall. Balcony B, off bedroom 2, has a lounger and a small table.</p>
+    <button class="to-tour" type="button" data-scene="pano_balcony">Stand on the balcony in 360°</button>
+    <ul class="pieces"><li><span class="piece"><b>Folding bistro sets</b><small>two</small></span><span class="price">€200–€380</span></li><li><span class="piece"><b>Bench and lounger with cushions</b><small>oak, outdoor linen</small></span><span class="price">€450–€750</span></li><li><span class="piece"><b>Outdoor rug, planters, plants</b><small>terracotta</small></span><span class="price">€250–€450</span></li><li><span class="piece"><b>Wall lights</b><small>five, black</small></span><span class="price">€150–€300</span></li></ul>
+    <p class="room-total"><span>Room total</span><span>€1 050–€1 880</span></p>
+  </div>
+</article>
+  </section>
+
+  <section id="tour">
+    <div class="section-head"><h2>Walk through it</h2><p>Drag to look around. The arrows in the doorways take you to the next room.</p></div>
+    <div id="viewer" role="region" aria-label="360 degree tour"></div>
+    <div class="scenes" role="group" aria-label="Choose a room"><button type="button" class="scene-chip" data-scene="pano_living" aria-pressed="false">Living room</button><button type="button" class="scene-chip" data-scene="pano_dining" aria-pressed="false">Kitchen and dining</button><button type="button" class="scene-chip" data-scene="pano_hall" aria-pressed="false">Entrance</button><button type="button" class="scene-chip" data-scene="pano_bedroom1" aria-pressed="false">Main bedroom</button><button type="button" class="scene-chip" data-scene="pano_bath1" aria-pressed="false">En-suite</button><button type="button" class="scene-chip" data-scene="pano_bedroom2" aria-pressed="false">Bedroom two</button><button type="button" class="scene-chip" data-scene="pano_bath2" aria-pressed="false">Bathroom two</button><button type="button" class="scene-chip" data-scene="pano_balcony" aria-pressed="false">Balcony, evening</button></div>
+    <p class="tour-note">The view from the windows is illustrative: the plan gives no orientation, so the sun is placed to come in through the sea-side glazing.</p>
+  </section>
+
+  <section id="plan">
+    <div class="section-head"><h2>The whole apartment</h2><p>Cut at 1.5 m and seen from above. One oak floor runs through every dry room.</p></div>
+    <div class="plans"><figure class="shot square"><button class="zoom" type="button" data-full="img/topplan.jpg" data-cap="3D plan" aria-label="Enlarge: 3D plan"><img src="img/topplan_s.jpg" alt="3D plan" loading="lazy" width="1100" height="733"></button><figcaption>3D plan</figcaption></figure><figure class="shot "><button class="zoom" type="button" data-full="img/cutaway.jpg" data-cap="The whole apartment, cut at 1.5 m" aria-label="Enlarge: The whole apartment, cut at 1.5 m"><img src="img/cutaway_s.jpg" alt="The whole apartment, cut at 1.5 m" loading="lazy" width="1100" height="733"></button><figcaption>The whole apartment, cut at 1.5 m</figcaption></figure></div>
+  </section>
+
+  <section id="budget">
+    <div class="section-head"><h2>What it costs</h2><p class="label">Indicative · EUR · 2026</p></div>
+    <div class="budget">
+      <div>
+        <table><thead><tr><th scope="col" class="label">Room</th><td class="label">Range</td></tr></thead>
+        <tbody><tr><th scope="row"><a href="#living">Living room</a></th><td>€3 130–€5 000</td></tr><tr><th scope="row"><a href="#kitchen">Kitchen and dining</a></th><td>€6 370–€10 240</td></tr><tr><th scope="row"><a href="#hall">Entrance and hall</a></th><td>€1 740–€3 030</td></tr><tr><th scope="row"><a href="#bedroom1">Main bedroom</a></th><td>€2 060–€3 640</td></tr><tr><th scope="row"><a href="#bedroom2">Bedroom two</a></th><td>€1 430–€2 430</td></tr><tr><th scope="row"><a href="#baths">Bathrooms</a></th><td>€5 300–€9 300</td></tr><tr><th scope="row"><a href="#balconies">Balconies</a></th><td>€1 050–€1 880</td></tr></tbody>
+        <tfoot><tr><th scope="row">Total</th><td>€21 080–€35 520</td></tr></tfoot></table>
+        <p class="note">Prices are indicative 2026 mid-market retail ranges in euros, before delivery, installation and appliances. Renders are illustrations of the scheme on the revised plan (rev D); ceiling height 270 cm and the view are assumed. Check all dimensions on site.</p>
+      </div>
+      <div>
+        <h3>Where to save, where to spend</h3>
+        <ul class="tips">
+          <li>Spend on the sofa, the mattress and the kitchen fronts: they are touched every day.</li>
+          <li>Save on dining chairs, lamps, rugs and baskets: mid-range versions look the same in the room.</li>
+          <li>One floor everywhere costs less to lay and makes the flat feel bigger.</li>
+          <li>Limewash two walls instead of tiling or panelling them: the warmest effect for the least money.</li>
+          <li>Zellige-look ceramic gives the handmade look of real zellige at a fraction of the price.</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+</main>
+<footer><div class="wrap">Rendered in Blender Cycles from the revised plan (rev D) with CC0 materials and models from Poly Haven. Artwork and rugs are original. Check all dimensions on site.</div></footer>
+
+<dialog class="lightbox" id="lightbox"><img id="lb-img" alt=""><p><span id="lb-cap"></span><button type="button" id="lb-close">Close</button></p></dialog>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/pannellum/2.5.6/pannellum.js"></script>
+<script>
+(function () {
+  var cfg = {"default": {"firstScene": "pano_living", "sceneFadeDuration": 700, "autoLoad": true, "compass": false, "showZoomCtrl": true, "mouseZoom": false, "hfov": 105, "minHfov": 50, "maxHfov": 120}, "scenes": {"pano_living": {"title": "Living room", "panorama": "pano/pano_living.jpg", "yaw": -25, "pitch": -4, "hfov": 105, "hotSpots": [{"pitch": -8.4, "yaw": -16.7, "type": "scene", "text": "Balcony", "sceneId": "pano_balcony"}, {"pitch": -12.3, "yaw": -138.7, "type": "scene", "text": "Kitchen and dining", "sceneId": "pano_dining"}, {"pitch": -3.4, "yaw": -167.9, "type": "scene", "text": "Hall", "sceneId": "pano_hall"}]}, "pano_dining": {"title": "Kitchen and dining", "panorama": "pano/pano_dining.jpg", "yaw": 25, "pitch": -4, "hfov": 105, "hotSpots": [{"pitch": -12.3, "yaw": 41.3, "type": "scene", "text": "Living room", "sceneId": "pano_living"}, {"pitch": -5.1, "yaw": 5.7, "type": "scene", "text": "Balcony", "sceneId": "pano_balcony"}, {"pitch": -5.5, "yaw": 172.9, "type": "scene", "text": "Hall", "sceneId": "pano_hall"}, {"pitch": -9.7, "yaw": 151.4, "type": "scene", "text": "Main bedroom", "sceneId": "pano_bedroom1"}]}, "pano_hall": {"title": "Entrance", "panorama": "pano/pano_hall.jpg", "yaw": 0, "pitch": -4, "hfov": 105, "hotSpots": [{"pitch": -3.9, "yaw": 0.0, "type": "scene", "text": "Kitchen and dining", "sceneId": "pano_dining"}, {"pitch": -29.8, "yaw": 106.6, "type": "scene", "text": "Bedroom two", "sceneId": "pano_bedroom2"}, {"pitch": -7.6, "yaw": -12.9, "type": "scene", "text": "Bathroom two", "sceneId": "pano_bath2"}]}, "pano_bedroom1": {"title": "Main bedroom", "panorama": "pano/pano_bedroom1.jpg", "yaw": 0, "pitch": -4, "hfov": 105, "hotSpots": [{"pitch": -11.1, "yaw": -85.8, "type": "scene", "text": "Living area", "sceneId": "pano_dining"}, {"pitch": -12.0, "yaw": -131.1, "type": "scene", "text": "En-suite", "sceneId": "pano_bath1"}]}, "pano_bath1": {"title": "En-suite", "panorama": "pano/pano_bath1.jpg", "yaw": 95, "pitch": -4, "hfov": 105, "hotSpots": [{"pitch": -17.4, "yaw": -44.7, "type": "scene", "text": "Main bedroom", "sceneId": "pano_bedroom1"}]}, "pano_bedroom2": {"title": "Bedroom two", "panorama": "pano/pano_bedroom2.jpg", "yaw": 90, "pitch": -4, "hfov": 105, "hotSpots": [{"pitch": -14.8, "yaw": -109.3, "type": "scene", "text": "Hall", "sceneId": "pano_hall"}]}, "pano_bath2": {"title": "Bathroom two", "panorama": "pano/pano_bath2.jpg", "yaw": -178, "pitch": -4, "hfov": 105, "hotSpots": [{"pitch": -22.7, "yaw": 67.2, "type": "scene", "text": "Hall", "sceneId": "pano_hall"}]}, "pano_balcony": {"title": "Balcony, evening", "panorama": "pano/pano_balcony.jpg", "yaw": 40, "pitch": -4, "hfov": 105, "hotSpots": [{"pitch": -17.2, "yaw": -131.9, "type": "scene", "text": "Living room", "sceneId": "pano_living"}]}}};
+  var viewer = null;
+  var chips = document.querySelectorAll(".scene-chip");
+  function mark(id) { chips.forEach(function (c) { c.setAttribute("aria-pressed", c.dataset.scene === id ? "true" : "false"); }); }
+  function start() {
+    if (!window.pannellum || !cfg.default.firstScene) return;
+    viewer = pannellum.viewer("viewer", cfg);
+    viewer.on("scenechange", mark);
+    mark(cfg.default.firstScene);
+  }
+  chips.forEach(function (c) { c.addEventListener("click", function () { if (viewer) viewer.loadScene(c.dataset.scene); }); });
+  document.querySelectorAll(".to-tour").forEach(function (b) {
+    b.addEventListener("click", function () {
+      if (viewer) viewer.loadScene(b.dataset.scene);
+      document.getElementById("tour").scrollIntoView({ behavior: "smooth", block: "start" });
+    });
+  });
+  start();
+  var lb = document.getElementById("lightbox"), img = document.getElementById("lb-img"), cap = document.getElementById("lb-cap");
+  document.querySelectorAll(".zoom").forEach(function (b) {
+    b.addEventListener("click", function () {
+      img.src = b.dataset.full; img.alt = b.dataset.cap; cap.textContent = b.dataset.cap;
+      if (lb.showModal) lb.showModal();
+    });
+  });
+  document.getElementById("lb-close").addEventListener("click", function () { lb.close(); });
+  lb.addEventListener("click", function (e) { if (e.target === lb) lb.close(); });
+})();
+</script>
