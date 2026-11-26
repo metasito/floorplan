@@ -1,7 +1,9 @@
 #!/usr/bin/env python3
 """Local server for the Unit 13 configurator: serves the editor and renders layouts with Blender.
 
-Usage: .venv/bin/python configurator/server.py [port]      then open http://localhost:8013
+Usage: double-click configurator/start.command (Mac) or configurator/start.bat (Windows),
+or run `python configurator/server.py [port]` and open http://localhost:8013.
+Blender is found automatically; set the BLENDER environment variable to override.
 
 POST /api/render takes the layout and the editor's camera, queues a Cycles render (one at a time,
 in the order asked) and finishes it with renders/post.py. Saved layouts live in layouts/.
@@ -9,6 +11,7 @@ in the order asked) and finishes it with renders/post.py. Saved layouts live in 
 import datetime
 import json
 import re
+import shutil
 import subprocess
 import sys
 import threading
@@ -25,7 +28,10 @@ OUT = HERE / "renders"
 LAYOUTS = HERE / "layouts"
 OUT.mkdir(exist_ok=True)
 LAYOUTS.mkdir(exist_ok=True)
-BLENDER = "/Applications/Blender.app/Contents/MacOS/Blender"
+sys.path.insert(0, str(RENDERS_SRC))
+from batch import find_blender  # noqa: E402
+
+BLENDER = find_blender()
 
 QUALITY = {   # label: (resolution, samples, noise threshold)
     "preview": ((1200, 800), 96, 0.03),
@@ -197,4 +203,6 @@ if __name__ == "__main__":
     ThreadingHTTPServer.daemon_threads = True
     srv = ThreadingHTTPServer(("127.0.0.1", port), Handler)
     print(f"Unit 13 configurator on http://localhost:{port}", flush=True)
+    if not shutil.which(BLENDER) and not Path(BLENDER).exists():
+        print(f"Blender not found ({BLENDER}): the editor works, rendering won't. Install it from blender.org.", flush=True)
     srv.serve_forever()

@@ -745,7 +745,7 @@ function buildInspector() {
     h('button', { type: 'button', class: 'btn', onclick: () => turn(90) }, 'Turn 90°'),
     h('button', { type: 'button', class: 'btn', onclick: duplicate }, 'Duplicate'),
     h('button', { type: 'button', class: 'btn danger', onclick: removeSelected }, 'Delete')));
-  els.push(h('p', { class: 'note' }, 'Keys: R turns 90°, Delete removes, Cmd+D duplicates, Cmd+Z undoes, Esc deselects.'));
+  els.push(h('p', { class: 'note' }, 'Keys: R turns 90°, Delete removes, Cmd/Ctrl+D duplicates, Cmd/Ctrl+Z undoes, Esc deselects.'));
   ins.replaceChildren(...els);
   if (wasHidden) requestAnimationFrame(resize);
 }

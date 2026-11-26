@@ -1,0 +1,4 @@
+# Mac scripts break with Windows line endings, and .bat files want them.
+*.sh      text eol=lf
+*.command text eol=lf
+*.bat     text eol=crlf

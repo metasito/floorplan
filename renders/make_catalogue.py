@@ -40,10 +40,15 @@ def font(name, path, idx=None):
         return None
 
 
-SERIF = font("Georgia", "/System/Library/Fonts/Supplemental/Georgia.ttf") or "Times-Roman"
-SERIF_I = font("Georgia-Italic", "/System/Library/Fonts/Supplemental/Georgia Italic.ttf") or "Times-Italic"
-SANS = font("AvenirNext", "/System/Library/Fonts/Avenir Next.ttc", 7) or "Helvetica"
-SANS_D = font("AvenirNext-Demi", "/System/Library/Fonts/Avenir Next.ttc", 2) or "Helvetica-Bold"
+WIN = "C:/Windows/Fonts/"   # Mac fonts first, then the Windows equivalents, then PDF built-ins
+SERIF = (font("Georgia", "/System/Library/Fonts/Supplemental/Georgia.ttf")
+         or font("Georgia", WIN + "georgia.ttf") or "Times-Roman")
+SERIF_I = (font("Georgia-Italic", "/System/Library/Fonts/Supplemental/Georgia Italic.ttf")
+           or font("Georgia-Italic", WIN + "georgiai.ttf") or "Times-Italic")
+SANS = (font("AvenirNext", "/System/Library/Fonts/Avenir Next.ttc", 7)
+        or font("SegoeUI", WIN + "segoeui.ttf") or "Helvetica")
+SANS_D = (font("AvenirNext-Demi", "/System/Library/Fonts/Avenir Next.ttc", 2)
+          or font("SegoeUI-Semibold", WIN + "seguisb.ttf") or "Helvetica-Bold")
 
 
 def img(name, max_px=2600):

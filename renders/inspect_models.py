@@ -10,6 +10,9 @@ from pathlib import Path
 import bpy
 from mathutils import Vector
 
+sys.path.insert(0, str(Path(__file__).resolve().parent))
+import kit  # noqa: E402
+
 assets, out = (Path(p) for p in sys.argv[sys.argv.index("--") + 1:])
 out.mkdir(parents=True, exist_ok=True)
 sc = bpy.context.scene
@@ -19,12 +22,7 @@ sc.render.engine = "CYCLES"
 sc.cycles.samples = 12
 sc.cycles.use_denoising = False
 sc.render.resolution_x = sc.render.resolution_y = 240
-prefs = bpy.context.preferences.addons["cycles"].preferences
-prefs.compute_device_type = "METAL"
-prefs.get_devices()
-for d in prefs.devices:
-    d.use = True
-sc.cycles.device = "GPU"
+kit.use_gpu(sc, gpu_only=False)
 world = bpy.data.worlds.new("w")
 sc.world = world
 world.use_nodes = True

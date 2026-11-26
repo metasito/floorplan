@@ -28,6 +28,28 @@ for o in list(bpy.data.objects):      # the factory scene's cube, camera and lig
     bpy.data.objects.remove(o, do_unlink=True)
 
 
+def use_gpu(scene, gpu_only=True):
+    """Render on the GPU with whatever backend this machine has (Metal on Mac, OptiX/CUDA on
+    NVIDIA, HIP on AMD, oneAPI on Intel); fall back to the CPU when none works."""
+    prefs = bpy.context.preferences.addons["cycles"].preferences
+    for backend in ("METAL", "OPTIX", "CUDA", "HIP", "ONEAPI"):
+        try:
+            prefs.compute_device_type = backend
+        except TypeError:          # backend not built for this OS
+            continue
+        prefs.get_devices()
+        gpus = [d for d in prefs.devices if d.type == backend]
+        if gpus:
+            for d in prefs.devices:
+                d.use = d.type != "CPU" if gpu_only else True
+            scene.cycles.device = "GPU"
+            print(f"Cycles device: {backend} ({', '.join(d.name for d in gpus)})", flush=True)
+            return
+    prefs.compute_device_type = "NONE"
+    scene.cycles.device = "CPU"
+    print("Cycles device: CPU (no supported GPU found; renders will be slower)", flush=True)
+
+
 # ---------------------------------------------------------------- coordinates
 def P(x, y, z=0.0):
     """Plan centimetres (y down the sheet) to Blender metres."""

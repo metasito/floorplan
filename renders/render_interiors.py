@@ -21,6 +21,9 @@ import bmesh
 import bpy
 from mathutils import Matrix, Vector
 
+sys.path.insert(0, str(Path(__file__).resolve().parent))
+import kit  # noqa: E402
+
 HERE = Path(__file__).resolve().parent
 ASSETS = HERE / "assets"
 SC = json.loads((HERE / "scene.json").read_text())
@@ -1304,12 +1307,7 @@ def settings(a):
     r.image_settings.file_format = "PNG"
     r.image_settings.color_depth = "8"
     c = scene.cycles
-    prefs = bpy.context.preferences.addons["cycles"].preferences
-    prefs.compute_device_type = "METAL"
-    prefs.get_devices()
-    for d in prefs.devices:
-        d.use = True
-    c.device = "GPU"
+    kit.use_gpu(scene, gpu_only=False)
     c.samples = a.samples
     c.use_adaptive_sampling = True
     c.adaptive_threshold = 0.012

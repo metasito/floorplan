@@ -232,12 +232,7 @@ def settings(a, v, mood, pano):
     r.image_settings.file_format = "PNG"
     r.image_settings.color_depth = "16"
     c = scene.cycles
-    prefs = bpy.context.preferences.addons["cycles"].preferences
-    prefs.compute_device_type = "METAL"
-    prefs.get_devices()
-    for d in prefs.devices:
-        d.use = d.type != "CPU"
-    c.device = "GPU"
+    kit.use_gpu(scene)
     c.samples = a.pano_samples if pano else a.samples
     c.use_adaptive_sampling = True
     c.adaptive_threshold = a.noise
