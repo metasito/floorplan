@@ -154,7 +154,8 @@ scene_chips = "".join(
 hero = stills.get("living_dusk", stills.get("living_day", ("", "")))[1]
 concept_html = "".join(f"<p>{esc(p)}</p>" for p in D.CONCEPT)
 
-page = f'''<title>Unit 13 Warm Scheme</title>
+page = f'''<meta charset="utf-8">
+<title>Unit 13 Warm Scheme</title>
 <meta name="claude:viewport-fit-sides" content="cover">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -164,8 +165,8 @@ page = f'''<title>Unit 13 Warm Scheme</title>
 /* Layout: a printed interiors brief. Wide image plates, a narrow text column beside each,
    figures set in mono like a drawing's annotations. */
 :root {{
-  --bg: #f1efeb; --surface: #e7e3dc; --ink: #24211e; --muted: #6e675f; --rule: #d3cdc4;
-  --accent: #5d6b54; --accent-ink: #f4f2ee; --warm: #a4593a; --lb-ink: #e9e4dc; --lb-rule: #6d665e;
+  --bg: #f1efeb; --surface: #e7e3dc; --ink: #24211e; --muted: #625b53; --rule: #d3cdc4;
+  --accent: #545f4b; --accent-ink: #f4f2ee; --warm: #934f31; --lb-ink: #e9e4dc; --lb-rule: #6d665e;
   --display: "Newsreader", Georgia, "Times New Roman", serif;
   --body: "Manrope", "Avenir Next", "Segoe UI", system-ui, sans-serif;
   --mono: "IBM Plex Mono", ui-monospace, "SF Mono", Menlo, monospace;

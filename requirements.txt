@@ -1,0 +1,9 @@
+# Python packages for the floor plan, the configurator's render finishing, and the catalogue.
+# Blender itself is a separate free install: https://www.blender.org/download/
+numpy
+opencv-python-headless
+pillow
+reportlab
+ezdxf
+shapely
+pypdfium2

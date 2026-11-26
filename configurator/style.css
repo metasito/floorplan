@@ -1,7 +1,7 @@
 /* Layout: a working tool. Panels left and right, the model in the middle, controls in the
    materials of the scheme: warm stone greys, oak-brown ink, sage for actions. */
 :root {
-  --bg: #e9e6e1; --panel: #f6f4f0; --ink: #26231f; --muted: #776f66; --rule: #d6d0c7;
+  --bg: #e9e6e1; --panel: #f6f4f0; --ink: #26231f; --muted: #655e56; --rule: #d6d0c7;
   --accent: #56664f; --accent-ink: #f7f5f1; --warm: #a4593a; --sel: #c8a66a; --field: #ffffff;
   --sans: -apple-system, "SF Pro Text", "Avenir Next", "Segoe UI", system-ui, sans-serif;
   --mono: "SF Mono", ui-monospace, Menlo, monospace;
